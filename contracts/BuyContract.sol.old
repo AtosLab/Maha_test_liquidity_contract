@@ -1,0 +1,60 @@
+// pragma solidity =0.7.6;
+// pragma abicoder v2;
+
+// import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
+// import "@uniswap/v3-periphery/contracts/libraries/TransferHelper.sol";
+
+// contract BuyContract {
+//     ISwapRouter public immutable swapRouter;
+//     // address public constant WETH9 = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
+//     address public immutable WETH9;
+//     uint24 public constant feeTier = 3000;
+
+//     constructor(ISwapRouter _swapRouter, address _WETH9) {
+//         swapRouter = _swapRouter;
+//         WETH9 = _WETH9;
+//     }
+
+//     function _swapToken( uint256 _amountIn, address _tokenOut)
+//         internal
+//         returns (uint256 _amountOut)
+//     {
+//         // Transfer the specified amount of WETH9 to this contract.
+//         TransferHelper.safeTransferFrom(
+//             WETH9,
+//             msg.sender,
+//             address(this),
+//             _amountIn
+//         );
+
+//         // Approve the router to spend WETH9.
+//         TransferHelper.safeApprove(WETH9, address(swapRouter), amountIn);
+
+//         ISwapRouter.ExactInputSingleParams memory params = ISwapRouter
+//             .ExactInputSingleParams({
+//                 tokenIn: WETH9,
+//                 tokenOut: _tokenOut,
+//                 fee: feeTier,
+//                 recipient: msg.sender,
+//                 deadline: block.timestamp,
+//                 amountIn: _amountIn,
+//                 amountOutMinimum: 0,
+//                 sqrtPriceLimitX96: 0
+//             });
+//         _amountOut = swapRouter.exactInputSingle(params);
+//         return _amountOut;
+//     }
+
+//     function _addLiquidity(uint256 _amountWethTotal, address _token)
+//         external
+//         returns (uint256 _result)
+//     {
+//         // Approeve the specified amount of WETH9 to this contract.
+//         require(IERC20(WETH9).balanceOf(msg.sender) > _amountWethTotal. "insufficiant funds");
+//         TransferHelper.safeApprove(WETH9, address(this), _amountWethTotal);
+
+//         uint256 _amountWethForSwap = _swapToken(_amountWethTotal / 2, _token);
+//         uint256 _amountWethForLiquidity = _amountWethTotal - _amountWethForSwap;
+        
+//     }
+// }

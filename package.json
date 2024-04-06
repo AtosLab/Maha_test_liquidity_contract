@@ -1,0 +1,23 @@
+{
+  "name": "contracts",
+  "version": "1.0.0",
+  "description": "Smart Contracts",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "dotenv": "^16.0.3",
+    "hardhat": "^2.12.2",
+    "hardhat-deploy": "^0.11.20"
+  },
+  "scripts": {
+    "clean": "hardhat clean",
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat deploy",
+    "deploy:main": "hardhat --network avalanche deploy",
+    "deploy:test": "hardhat --network avalanche_fuji deploy"
+  },
+  "author": "https://github.com/AtosDev",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.0",
+    "@uniswap/v2-periphery": "^1.1.0-beta.0"
+  }
+}
